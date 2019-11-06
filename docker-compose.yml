@@ -1,0 +1,40 @@
+version: "3"
+
+services:
+
+  web:
+    image: nginx:1.16.1
+    container_name: Nginx-1.16.1
+    working_dir: /code
+    ports:
+      - "8080:80"
+    volumes:
+      - ${PWD}/code:/code
+      - ${PWD}/site.conf:/etc/nginx/conf.d/default.conf
+    links:
+      - php
+
+  php:
+    image: php:7.3-fpm
+    container_name: PHP-7.3-FPM
+    volumes:
+      - ${PWD}/code:/code
+
+  db:
+    image: mariadb:10.4.8
+    container_name: MariaDB-10.4.8
+    restart: always
+    volumes:
+      - ${PWD}/db_data:/var/lib/mysql
+    ports:
+      - "3306:3306"
+    environment:
+      MYSQL_ROOT_PASSWORD: password
+      MYSQL_DATABASE: wordpress
+      MYSQL_USER: wordpress
+      MYSQL_PASSWORD: wordpress
+    networks:
+      - wp
+
+networks:
+  wp:
