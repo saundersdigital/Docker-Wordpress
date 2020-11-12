@@ -30,8 +30,8 @@ services:
       MYSQL_PASSWORD: wordpress
 
   wordpress:
-    image: wordpress:5.3.2-php7.4-fpm
-    container_name: Wordpress-5.3.2-PHP7.4-FPM
+    image: wordpress:5.5.3-php7.4-fpm
+    container_name: Wordpress-5.5.3-PHP7.4-FPM
     restart: always
     ports:
       - "9000:9000"

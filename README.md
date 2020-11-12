@@ -2,7 +2,7 @@
 
 WordPress container with Nginx 1.16.1, PHP-FPM 7.3 & MariaDB 10.4.8.
 
-_WordPress version currently installed:_ **5.2.4**
+_WordPress version currently installed:_ **5.5.3**
 
 ## Installation
 
